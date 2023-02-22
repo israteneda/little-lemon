@@ -1,5 +1,5 @@
-import Nav from "./Nav/Nav";
+import Button from './Button/Button'
+import Nav from './Nav/Nav'
+import Footer from './Footer/Footer'
 
-export {
-    Nav
-}
+export { Button, Footer, Nav }

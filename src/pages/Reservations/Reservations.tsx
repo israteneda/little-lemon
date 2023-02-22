@@ -1,11 +1,11 @@
-import * as React from "react";
+import * as React from 'react'
 
 function Reservations() {
-    return (
-        <div>
-            <h2>Home</h2>
-        </div>
-    );
+  return (
+    <div>
+      <h2>Book your seat</h2>
+    </div>
+  )
 }
 
-export default Reservations;
+export default Reservations
