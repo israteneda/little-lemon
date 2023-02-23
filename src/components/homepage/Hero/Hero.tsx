@@ -11,6 +11,7 @@ function Hero() {
         We are a family owned Mediterranean restaurant, focused on traditional recipes served with a
         modern twist.
       </p>
+      <img src='./images/waiter.png' />
       <Button>Reserve a Table</Button>
     </div>
   )

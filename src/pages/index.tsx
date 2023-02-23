@@ -1,9 +1,6 @@
-import Home from "./Home/Home";
-import NotFound from "./NotFound/NotFound";
-import Reservations from "./Reservations/Reservations";
+import Home from './home/Home'
+import NotFound from './not-found/NotFound'
+import BookReservation from './reservations/BookReservation'
+import ConfirmReservation from './reservations/ConfirmReservation'
 
-export {
-    Home,
-    NotFound,
-    Reservations
-}
+export { Home, NotFound, BookReservation, ConfirmReservation }
