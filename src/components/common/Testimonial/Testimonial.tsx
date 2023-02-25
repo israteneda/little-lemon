@@ -1,9 +1,23 @@
 import React from 'react'
 
-function Testimonial() {
+function Testimonial({
+  avatarUrl,
+  score,
+  text,
+  name,
+}: {
+  avatarUrl: string
+  score: number
+  text: string
+  name: string
+}) {
   return (
     <div>
-      <h1>Testimonial</h1>
+      <img src={avatarUrl} alt='avatar'></img>
+      {/*TODO: Add testimonial stars*/}
+      <p>{score}</p>
+      <p>{text}</p>
+      <p>{name}</p>
     </div>
   )
 }

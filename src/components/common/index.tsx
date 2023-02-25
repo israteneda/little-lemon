@@ -1,5 +1,8 @@
 import Button from './Button/Button'
-import Nav from './Nav/Nav'
+import Card from './Card/Card'
 import Footer from './Footer/Footer'
+import Modal from './Modal/Modal'
+import Nav from './Nav/Nav'
+import Testimonial from './Testimonial/Testimonial'
 
-export { Button, Footer, Nav }
+export { Button, Card, Footer, Modal, Nav, Testimonial }

@@ -15,9 +15,34 @@ function ConfirmReservation() {
           </div>
         </section>
       </main>
-      <section>Booking Information</section>
-      <section>Customer Information</section>
-      <Button>Submit</Button>
+      <section>
+        <div>
+          <h2>Booking Confirmation</h2>
+          <ul>
+            <li>First Name: </li>
+            <li>Last Name: </li>
+            <li>Email: </li>
+            <li>Postal Code: </li>
+            <li>Card Number: </li>
+            <li>Expiration Date: </li>
+            <li>CVV/CVC: </li>
+            <li>Date: </li>
+            <li>Time: </li>
+            <li>Dinners: </li>
+            <li>Table: </li>
+          </ul>
+        </div>
+      </section>
+      <section>
+        <h2>Service Conditions</h2>
+        <ul>
+          <li>You cannot cancel your reservation within 24 hours of your reservation time.</li>
+          <li>The service charge is 10% of the total bill.</li>
+          <li>The service includes a 10% gratuity.</li>
+        </ul>
+      </section>
+      <Button>Edit</Button>
+      <Button>Confirm</Button>
     </div>
   )
 }

@@ -9,6 +9,7 @@ export default function App() {
       <Routes>
         <Route path='/' element={<Layout />}>
           <Route index element={<Home />} />
+          <Route path='reservations' element={<BookReservation />} />
           <Route path='reservations/book' element={<BookReservation />} />
           <Route path='reservations/confirm' element={<ConfirmReservation />} />
           <Route path='*' element={<NotFound />} />
