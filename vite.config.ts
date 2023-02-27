@@ -9,6 +9,7 @@ export default defineConfig({
       '@': `${__dirname}/src`,
       '@assets': `${__dirname}/src/assets`,
       '@components': `${__dirname}/src/components`,
+      '@hooks': `${__dirname}/src/hooks`,
       '@pages': `${__dirname}/src/pages`,
       '@styles': `${__dirname}/src/styles`,
       '@typography': `${__dirname}/src/components/typography`,

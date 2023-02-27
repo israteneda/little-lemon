@@ -1,11 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import useIsMobile from '@hooks/useIsMobile'
 
 function Nav() {
+  const isMobile = useIsMobile()
+
   return (
     <nav>
       <ul>
-        {/*TODO: Add Logo*/}
+        <img src='./icons/little-lemon-logo.png' alt='Little Lemon Logo' />
         <li>
           <Link to='/'>Home</Link>
         </li>
