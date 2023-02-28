@@ -1,0 +1,30 @@
+.nav {
+  .desktop {
+    ul {
+      list-style: none;
+    }
+  }
+
+  .mobile {
+    position: fixed;
+    background-color: white;
+    width: 100vw;
+    top: 70px;
+    margin: 0;
+    box-sizing: border-box;
+    z-index: 100;
+    transform: translateX(-100%);
+
+    ul {
+      list-style: none;
+    }
+
+    &.open {
+      transform: translateX(0);
+    }
+  }
+}
+
+.menu-button {
+  @include remove-button-styles;
+}

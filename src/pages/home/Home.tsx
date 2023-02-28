@@ -1,6 +1,6 @@
-import * as React from 'react'
-import { Button, Card, Testimonial } from '@components/common'
-import { Hero } from '@components/homepage'
+import * as React from 'react';
+import { Button, Card, Testimonial } from '@components/common';
+import { Hero } from '@components/homepage';
 
 const dishes = [
   {
@@ -17,7 +17,7 @@ const dishes = [
     price: '$15.99',
     imageUrl: './images/lemon-chicken.png',
   },
-]
+];
 
 const testimonials = [
   {
@@ -32,7 +32,7 @@ const testimonials = [
     text: 'The food was amazing! The service was great! I will definitely be back!',
     name: 'John Doe',
   },
-]
+];
 
 function Home() {
   return (
@@ -70,8 +70,8 @@ function Home() {
       <section>
         <h2>Little Lemon</h2>
         <h3>Chicago</h3>
-        <img src='./images/mario-and-adrian-a.png' />
-        <img src='./images/mario-and-adrian-b.png' />
+        <img src='./images/mario-and-adrian-a.png' width={350} height={250} />
+        <img src='./images/mario-and-adrian-b.png' width={350} height={250} />
         <p>
           Mario and Adrian are the dynamic duo behind the success of Little Lemon restaurant. They
           have a deep love and passion for food, and it shows in the quality and attention to detail
@@ -81,7 +81,7 @@ function Home() {
         </p>
       </section>
     </div>
-  )
+  );
 }
 
-export default Home
+export default Home;

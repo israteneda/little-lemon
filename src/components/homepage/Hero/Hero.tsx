@@ -1,6 +1,6 @@
-import React from 'react'
-import { Button } from '@components/common'
-import styles from './Hero.module.scss'
+import React from 'react';
+import { Button } from '@components/common';
+import styles from './Hero.module.scss';
 
 function Hero() {
   return (
@@ -11,10 +11,10 @@ function Hero() {
         We are a family owned Mediterranean restaurant, focused on traditional recipes served with a
         modern twist.
       </p>
-      <img src='./images/waiter.png' />
+      <img src='./images/waiter.png' width={350} height={250} />
       <Button>Reserve a Table</Button>
     </div>
-  )
+  );
 }
 
-export default Hero
+export default Hero;

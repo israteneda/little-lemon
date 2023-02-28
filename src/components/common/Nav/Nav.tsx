@@ -1,14 +1,24 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import useIsMobile from '@hooks/useIsMobile'
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import useMediaQuery from '@hooks/useMediaQuery';
+import styles from './Nav.module.scss';
+import cn from 'classnames';
 
 function Nav() {
-  const isMobile = useIsMobile()
+  const isMobile = useMediaQuery('(max-width: 768px)');
+  const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const mobileStyles = cn(styles.mobile, {
+    [styles.open]: isMobileOpen,
+  });
 
-  return (
-    <nav>
+  const desktopNav = (
+    <nav className={styles.desktop}>
       <ul>
-        <img src='./icons/little-lemon-logo.png' alt='Little Lemon Logo' />
+        <li>
+          <Link to='/'>
+            <img src='./icons/little-lemon-logo.png' alt='Little Lemon Logo' />
+          </Link>
+        </li>
         <li>
           <Link to='/'>Home</Link>
         </li>
@@ -29,7 +39,67 @@ function Nav() {
         </li>
       </ul>
     </nav>
-  )
+  );
+
+  const MobileNav = () => (
+    <nav className={mobileStyles}>
+      <ul>
+        <li>
+          <Link to='/' onClick={() => setIsMobileOpen(false)}>
+            Home
+          </Link>
+        </li>
+        <li>
+          <Link to='/about' onClick={() => setIsMobileOpen(false)}>
+            About
+          </Link>
+        </li>
+        <li>
+          <Link to='/menu' onClick={() => setIsMobileOpen(false)}>
+            Menu
+          </Link>
+        </li>
+        <li>
+          <Link to='/Reservations' onClick={() => setIsMobileOpen(false)}>
+            Reservations
+          </Link>
+        </li>
+        <li>
+          <Link to='/order-online' onClick={() => setIsMobileOpen(false)}>
+            Order Online
+          </Link>
+        </li>
+        <li>
+          <Link to='/Login' onClick={() => setIsMobileOpen(false)}>
+            Login
+          </Link>
+        </li>
+      </ul>
+    </nav>
+  );
+
+  return (
+    <div className={styles.nav}>
+      {isMobile ? (
+        <>
+          <button className={styles['menu-button']} onClick={() => setIsMobileOpen(!isMobileOpen)}>
+            <Link to='/'>
+              <img
+                src='/icons/menu-icon.svg'
+                alt='Menu icon'
+                style={{ padding: '10px' }}
+                width={50}
+                height={50}
+              />
+            </Link>
+          </button>
+          {<MobileNav />}
+        </>
+      ) : (
+        desktopNav
+      )}
+    </div>
+  );
 }
 
-export default Nav
+export default Nav;
