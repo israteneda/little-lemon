@@ -7,3 +7,7 @@
   cursor: pointer;
   outline: inherit;
 }
+
+@mixin border-radius($radius: 1.5rem) {
+  border-radius: $radius;
+}

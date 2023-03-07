@@ -1,0 +1,68 @@
+@font-face {
+  font-family: 'Markazi Text';
+  font-style: normal;
+  src: local('Markazi Text'), url(@styles/fonts/Markazi_Text/MarkaziText-VariableFont_wght.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Karla';
+  font-style: normal;
+  src: local('Karla'), url(@styles/fonts/Karla/Karla-VariableFont_wght.ttf) format('truetype');
+}
+
+@mixin display-title {
+  font-family: 'Markazi Text', serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 6.4rem;
+  line-height: 7.7rem;
+}
+
+@mixin subtitle {
+  font-family: 'Markazi Text', serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 48px;
+}
+
+@mixin lead-text {
+  font-family: 'Karla', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 21px;
+}
+
+@mixin section-title {
+  font-family: 'Karla', sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 16px;
+  line-height: 19px;
+}
+
+@mixin card-title {
+  font-family: 'Karla', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 21px;
+}
+
+@mixin hightlight-text {
+  font-family: 'Karla', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+}
+
+@mixin paragraph-text {
+  font-family: 'Karla', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+}
+
