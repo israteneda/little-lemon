@@ -1,21 +1,28 @@
 import * as React from 'react';
-import { Button, Card, Testimonial } from '@components/common';
-import { Hero } from '@components/homepage';
+import { Testimonial } from '@components/common';
+import { Hero, Dishes } from '@components/homepage';
 
 const dishes = [
   {
-    name: 'Lemon Chicken',
+    name: 'Greek Salad',
     description:
-      'Chicken breast marinated in lemon juice, garlic, and herbs, served with rice and vegetables.',
-    price: '$15.99',
-    imageUrl: './images/lemon-chicken.png',
+      'The famous greek salad of crispy lettuce, peppe rs, olives and our Chicago style feta cheese, garnished with crunchy garlic and rosemary croutons.',
+    price: '$12.99',
+    imageUrl: './images/greek-salad.png',
   },
   {
-    name: 'Lemon Chicken',
+    name: 'Bruchetta',
     description:
-      'Chicken breast marinated in lemon juice, garlic, and herbs, served with rice and vegetables.',
-    price: '$15.99',
-    imageUrl: './images/lemon-chicken.png',
+      'Our Bruchetta is made from grilled bread that has been smeared with garlic and seasoned with salt and olive oil.',
+    price: '$5,99',
+    imageUrl: './images/bruchetta.png',
+  },
+  {
+    name: 'Lemon Dessert',
+    description:
+      "This comes straight from grandma's recipe book, every last ingredient has been sourced and is as authentic as can imagin ed.",
+    price: '$5,00',
+    imageUrl: './images/lemon-dessert.png',
   },
 ];
 
@@ -41,19 +48,7 @@ function Home() {
         <Hero />
       </section>
       <main>
-        <section>
-          <h2>This week specials!</h2>
-          <Button>Online Menu</Button>
-          {dishes.map((dish) => (
-            <Card
-              key={dish.name}
-              description={dish.description}
-              imageUrl={dish.imageUrl}
-              dish={dish.name}
-              price={dish.price}
-            />
-          ))}
-        </section>
+        <Dishes dishes={dishes} />
       </main>
       <section>
         <h2>Testimonials</h2>
