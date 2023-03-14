@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Testimonial } from '@components/common';
+import { Testimonials } from '@components/common';
 import { Hero, Dishes } from '@components/homepage';
 
 const dishes = [
@@ -28,13 +28,13 @@ const dishes = [
 
 const testimonials = [
   {
-    avatarUrl: './images/testimonial-1.png',
+    avatarUrl: './images/avatar1.jpeg',
     score: 5,
     text: 'The food was amazing! The service was great! I will definitely be back!',
     name: 'John Doe',
   },
   {
-    avatarUrl: './images/testimonial-2.png',
+    avatarUrl: './images/avatar2.jpeg',
     score: 5,
     text: 'The food was amazing! The service was great! I will definitely be back!',
     name: 'John Doe',
@@ -51,16 +51,7 @@ function Home() {
         <Dishes dishes={dishes} />
       </main>
       <section>
-        <h2>Testimonials</h2>
-        {testimonials.map((testimonial) => (
-          <Testimonial
-            key={testimonial.name}
-            avatarUrl={testimonial.avatarUrl}
-            score={testimonial.score}
-            text={testimonial.text}
-            name={testimonial.name}
-          />
-        ))}
+        <Testimonials testimonials={testimonials} />
       </section>
       <section>
         <h2>Little Lemon</h2>

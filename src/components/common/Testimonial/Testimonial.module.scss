@@ -1,0 +1,37 @@
+.testimonial {
+    @include border-radius;
+    @include shadow;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    border: solid 1px $secondary-4;
+    padding: 3rem;
+
+    .avatar {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    .text {
+        .author {
+            text-align: right;
+        }
+
+        @media screen and (min-width: $mobile-screen) {
+            text-align: left;
+        }
+    }
+
+    p {
+        @include paragraph-text;
+    }
+
+    @media screen and (min-width: $mobile-screen) {
+        flex-direction: row;
+        padding: 3rem;
+    }
+}

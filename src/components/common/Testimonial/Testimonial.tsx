@@ -1,25 +1,25 @@
-import React from 'react'
+import React from 'react';
+import styles from './Testimonial.module.scss';
+import { ReviewStars } from '@components/common';
 
-function Testimonial({
-  avatarUrl,
-  score,
-  text,
-  name,
-}: {
-  avatarUrl: string
-  score: number
-  text: string
-  name: string
-}) {
-  return (
-    <div>
-      <img src={avatarUrl} alt='avatar'></img>
-      {/*TODO: Add testimonial stars*/}
-      <p>{score}</p>
-      <p>{text}</p>
-      <p>{name}</p>
-    </div>
-  )
+export interface TestimonialProps {
+  avatarUrl: string;
+  score: number;
+  text: string;
+  name: string;
 }
 
-export default Testimonial
+function Testimonial({ avatarUrl, score, text, name }: TestimonialProps) {
+  return (
+    <div className={styles.testimonial}>
+      <img src={avatarUrl} alt='avatar' className={styles.avatar} />
+      <div className={styles.text}>
+        <ReviewStars score={score} />
+        <p>{text}</p>
+        <p className={styles.author}>{name}</p>
+      </div>
+    </div>
+  );
+}
+
+export default Testimonial;
