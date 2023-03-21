@@ -5,7 +5,7 @@ import styles from './Testimonials.module.scss';
 
 function Testimonials({ testimonials }: { testimonials: TestimonialProps[] }) {
   return (
-    <div className={styles.testimonials}>
+    <section className={styles.testimonials}>
       <h2>Testimonials</h2>
       <div className={styles.testimonials__list}>
         {testimonials.map((testimonial) => (
@@ -18,7 +18,7 @@ function Testimonials({ testimonials }: { testimonials: TestimonialProps[] }) {
           />
         ))}
       </div>
-    </div>
+    </section>
   );
 }
 

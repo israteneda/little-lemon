@@ -1,3 +1,4 @@
+import About from './About/About';
 import Hero from './Hero/Hero';
 import Dish from './Dish/Dish';
 import Dishes from './Dishes/Dishes';

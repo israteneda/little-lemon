@@ -1,7 +1,17 @@
 .nav {
   .desktop {
+    display: flex;
+    padding: 1.5rem;
+
     ul {
       list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+
+      li {
+        @include highlight-text;
+      }
     }
   }
 

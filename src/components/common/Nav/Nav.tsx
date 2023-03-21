@@ -13,12 +13,10 @@ function Nav() {
 
   const desktopNav = (
     <nav className={styles.desktop}>
+      <Link to='/'>
+        <img src='./icons/nav-logo.png' alt='Little Lemon Logo' height={50} />
+      </Link>
       <ul>
-        <li>
-          <Link to='/'>
-            <img src='./icons/little-lemon-logo.png' alt='Little Lemon Logo' />
-          </Link>
-        </li>
         <li>
           <Link to='/'>Home</Link>
         </li>

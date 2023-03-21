@@ -22,7 +22,7 @@
   font-family: 'Markazi Text', serif;
   font-style: normal;
   font-weight: 400;
-  font-size: 40px;
+  font-size: 4rem;
   line-height: 48px;
 }
 
@@ -30,7 +30,7 @@
   font-family: 'Karla', sans-serif;
   font-style: normal;
   font-weight: 500;
-  font-size: 18px;
+  font-size: 1.8rem;
   line-height: 21px;
 }
 
@@ -38,7 +38,7 @@
   font-family: 'Karla', sans-serif;
   font-style: normal;
   font-weight: 800;
-  font-size: 16px;
+  font-size: 1.6rem;
   line-height: 19px;
 }
 
@@ -46,15 +46,15 @@
   font-family: 'Karla', sans-serif;
   font-style: normal;
   font-weight: 700;
-  font-size: 18px;
+  font-size: 1.8rem;
   line-height: 21px;
 }
 
-@mixin hightlight-text {
+@mixin highlight-text {
   font-family: 'Karla', sans-serif;
   font-style: normal;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 1.6rem;
   line-height: 19px;
 }
 
@@ -62,7 +62,7 @@
   font-family: 'Karla', sans-serif;
   font-style: normal;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 1.6rem;
   line-height: 19px;
 }
 

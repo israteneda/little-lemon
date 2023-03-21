@@ -1,5 +1,5 @@
 .button {
-  @include hightlight-text;
+  @include highlight-text;
   @include border-radius;
   display: flex;
   flex-direction: row;

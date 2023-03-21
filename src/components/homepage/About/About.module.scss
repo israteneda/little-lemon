@@ -1,0 +1,60 @@
+.about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3.5rem;
+  margin: 0 auto;
+  max-width: 1000px;
+  gap: 50px;
+
+  .text {
+    text-align: justify;
+    max-width: 350px;
+
+    h2 {
+      @include display-title;
+      margin: 0;
+    }
+
+    h3 {
+      @include subtitle;
+      margin: 0;
+    }
+
+    p {
+      @include paragraph-text;
+    }
+  }
+
+  .images {
+    display: block;
+    position: relative;
+    width: 250px;
+    height: 400px;
+
+    img {
+      @include border-radius;
+      @include shadow;
+      position: absolute;
+      width: 250px;
+      object-fit: cover;
+    }
+    img:first-child {
+      z-index: 2;
+      top: 0;
+      left: 5rem;
+    }
+    img:last-child {
+      bottom: 0;
+      right: 5rem;
+      z-index: 1;
+    }
+  }
+
+  @media screen and (min-width: $mobile-screen) {
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 100px;
+  }
+}
