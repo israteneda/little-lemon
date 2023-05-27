@@ -27,7 +27,7 @@ function Nav() {
           <Link to='/menu'>Menu</Link>
         </li>
         <li>
-          <Link to='/Reservations'>Reservations</Link>
+          <Link to='/reservation'>Reservation</Link>
         </li>
         <li>
           <Link to='/order-online'>Order Online</Link>
@@ -58,8 +58,8 @@ function Nav() {
           </Link>
         </li>
         <li>
-          <Link to='/Reservations' onClick={() => setIsMobileOpen(false)}>
-            Reservations
+          <Link to='/reservation' onClick={() => setIsMobileOpen(false)}>
+            Reservation
           </Link>
         </li>
         <li>
