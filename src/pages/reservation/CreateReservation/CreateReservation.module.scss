@@ -1,0 +1,54 @@
+.title {
+  @include display-title;
+  text-align: center;
+}
+
+.tables {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 120rem;
+  width: 100%;
+}
+
+.box-container {
+  border-radius: 5px;
+  border: 1px solid #e5e5e5;
+  margin: 3.2rem;
+  padding: 3.2rem 1.6rem 1.6rem;
+  display: grid;
+  position: relative;
+
+  h2 {
+    @include subtitle;
+    color: #9d9d9d;
+    position: absolute;
+    top: -6rem;
+    left: 2rem;
+    background-color: white;
+    padding: 0 1.6rem;
+  }
+
+  span {
+    margin: 0.8rem;
+    label {
+      @include section-title;
+      margin-right: 1.6rem;
+    }
+  }
+}
+
+.booking-information {
+  @extend .box-container;
+}
+
+.customer-information {
+  @extend .box-container;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin: 3.2rem;
+}
