@@ -1,15 +1,52 @@
 .title {
   @include display-title;
   text-align: center;
+  margin: 0;
 }
 
-.tables {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: 0 auto;
-  max-width: 120rem;
-  width: 100%;
+.main {
+  padding: 3.2rem;
+
+  .tables {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+
+    img {
+      width: inherit;
+    }
+
+    h2 {
+      position: absolute;
+      &.indoorsLabel {
+        top: 2rem;
+        right: 4rem;
+      }
+      &.outdoorsLabel {
+        bottom: 2rem;
+        right: 4rem;
+      }
+    }
+  }
+
+  @media screen and (min-width: $mobile-screen) {
+    padding: 3.2rem 10rem;
+    .tables {
+      h2 {
+        transform: rotate(0);
+        &.indoorsLabel {
+          top: 1rem;
+          left: 2rem;
+        }
+        &.outdoorsLabel {
+          top: 1rem;
+          right: 2rem;
+        }
+      }
+    }
+  }
 }
 
 @mixin input {
@@ -37,7 +74,7 @@
   position: relative;
 
   @media screen and (min-width: $mobile-screen) {
-    margin: 4.2rem 3.2rem;
+    margin: 4.2rem 10rem;
     width: -moz-fit-content;
     width: fit-content;
   }
