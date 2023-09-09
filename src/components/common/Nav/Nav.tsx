@@ -21,19 +21,7 @@ function Nav() {
           <Link to='/'>Home</Link>
         </li>
         <li>
-          <Link to='/about'>About</Link>
-        </li>
-        <li>
-          <Link to='/menu'>Menu</Link>
-        </li>
-        <li>
-          <Link to='/reservation'>Reservation</Link>
-        </li>
-        <li>
-          <Link to='/order-online'>Order Online</Link>
-        </li>
-        <li>
-          <Link to='/Login'>Login</Link>
+          <Link to='/reservation'>Book a table</Link>
         </li>
       </ul>
     </nav>
@@ -48,28 +36,8 @@ function Nav() {
           </Link>
         </li>
         <li>
-          <Link to='/about' onClick={() => setIsMobileOpen(false)}>
-            About
-          </Link>
-        </li>
-        <li>
-          <Link to='/menu' onClick={() => setIsMobileOpen(false)}>
-            Menu
-          </Link>
-        </li>
-        <li>
           <Link to='/reservation' onClick={() => setIsMobileOpen(false)}>
-            Reservation
-          </Link>
-        </li>
-        <li>
-          <Link to='/order-online' onClick={() => setIsMobileOpen(false)}>
-            Order Online
-          </Link>
-        </li>
-        <li>
-          <Link to='/Login' onClick={() => setIsMobileOpen(false)}>
-            Login
+            Book a table
           </Link>
         </li>
       </ul>

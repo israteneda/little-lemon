@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Button } from '@components/common';
 import styles from './CreateReservation.module.scss';
 import useMediaQuery from '@hooks/useMediaQuery';
+import Table from '@components/common/Table/Table';
 
 function CreateReservation() {
   const isMobile = useMediaQuery('(max-width: 768px)');
@@ -11,12 +12,14 @@ function CreateReservation() {
       <h1 className={styles.title}>Book your table</h1>
       <main className={styles.main}>
         <section className={styles.tables}>
-          <img
-            src={isMobile ? './images/tables-layout-mobile.png' : './images/tables-layout.png'}
-            alt='Tables Layout'
-          />
           <h2 className={styles.indoorsLabel}>Indoors</h2>
           <h2 className={styles.outdoorsLabel}>Outdoors</h2>
+          <div className={styles.outdoors}>
+            <Table state='available' />
+          </div>
+          <div className={styles.indoors}>
+            <Table state='available' />
+          </div>
         </section>
       </main>
       <section className={styles['booking-information']}>

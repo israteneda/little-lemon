@@ -13,18 +13,37 @@
     margin: 0 auto;
     width: 100%;
     position: relative;
+    height: 500px;
 
-    img {
-      width: inherit;
+    .outdoors {
+      border-radius: 8px 0 0 8px;
+      border: 1px solid #e5e5e5;
+      width: 100%;
+      position: relative;
+    }
+
+    .indoors {
+      border-radius: 0 8px 8px 0;
+      border: 1px solid #e5e5e5;
+      border-left: none;
+      width: 60%;
+      position: relative;
     }
 
     h2 {
       position: absolute;
+      color: white;
+      width: fit-content;
+      height: fit-content;
+      padding: 4px;
+      border-radius: 4px;
       &.indoorsLabel {
+        background-color: $primary-1;
         top: 2rem;
         right: 4rem;
       }
       &.outdoorsLabel {
+        background-color: $secondary-1;
         bottom: 2rem;
         right: 4rem;
       }
