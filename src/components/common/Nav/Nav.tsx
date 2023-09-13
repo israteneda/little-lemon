@@ -49,15 +49,7 @@ function Nav() {
       {isMobile ? (
         <>
           <button className={styles['menu-button']} onClick={() => setIsMobileOpen(!isMobileOpen)}>
-            <Link to='/'>
-              <img
-                src='/icons/menu-icon.svg'
-                alt='Menu icon'
-                style={{ padding: '10px' }}
-                width={50}
-                height={50}
-              />
-            </Link>
+            <img src='/icons/menu-icon.svg' alt='Menu icon' style={{ padding: '10px' }} width={50} height={50} />
           </button>
           {<MobileNav />}
         </>

@@ -1,8 +1,14 @@
+.label {
+  position: absolute;
+  background-color: $primary-1;
+  padding: 2px 4px;
+  color: white;
+  border-radius: 4px;
+}
+
 .tableImg {
   position: absolute;
   object-fit: cover;
   height: 50px;
   width: 50px;
-  top: 15%;
-  left: 10%;
 }
