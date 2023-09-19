@@ -1,18 +1,19 @@
 .container {
-  padding: 1.5rem;
+  padding: 1.5rem 15%;
+  max-width: $max-width;
+  margin: 0 auto;
 
   h2 {
     @include subtitle;
-    margin: 0;
   }
 
   .dishes {
     display: flex;
     flex-direction: column;
-    padding: 3rem;
+    margin-bottom: 3rem;
     gap: 1.5rem;
 
-    @media screen and (min-width: $mobile-screen) {
+    @media screen and (min-width: $tablet-screen) {
       flex-direction: row;
       justify-content: space-around;
     }

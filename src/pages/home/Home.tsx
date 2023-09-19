@@ -52,7 +52,6 @@ function Home() {
         <Dishes dishes={dishes} />
       </main>
       <Testimonials testimonials={testimonials} />
-
       <About />
     </div>
   );

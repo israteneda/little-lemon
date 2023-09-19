@@ -31,8 +31,8 @@
     }
   }
 
-  @media screen and (min-width: $mobile-screen) {
-    width: 30rem;
+  @media screen and (min-width: $tablet-screen) {
+    width: 34rem;
     flex-direction: row;
     justify-content: space-around;
   }

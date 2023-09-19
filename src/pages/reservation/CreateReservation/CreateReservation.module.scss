@@ -118,16 +118,16 @@
 .box-container {
   border-radius: 5px;
   border: 1px solid #e5e5e5;
-  margin: 3.2rem;
+  margin: 3.2rem auto;
   padding: 3.2rem 1.6rem 1.6rem;
   display: flex;
   flex-direction: row;
   position: relative;
+  width: fit-content;
 
   @media screen and (min-width: $mobile-screen) {
     margin: 4.2rem 10rem;
-    width: -moz-fit-content;
-    width: fit-content;
+    width: 100%;
   }
 
   h2 {
@@ -173,12 +173,22 @@
   }
 }
 
-.booking-information {
-  @extend .box-container;
-}
+.forms {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
-.customer-information {
-  @extend .box-container;
+  .booking-information {
+    @extend .box-container;
+  }
+
+  .customer-information {
+    @extend .box-container;
+  }
+
+  @media screen and (min-width: $mobile-screen) {
+    flex-direction: row;
+  }
 }
 
 .button-container {

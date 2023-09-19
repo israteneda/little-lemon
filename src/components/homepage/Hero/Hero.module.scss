@@ -1,36 +1,59 @@
 .hero {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    padding: 3rem 1rem;
-    background-color: $primary-1;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 3rem 1rem;
+  background-color: $primary-1;
 
-    h1, h2, p {
-        margin: 0;
-        padding: 0 1rem;
+  .text {
+    h1,
+    h2,
+    p {
+      margin: 0;
+      padding: 0 1rem;
     }
 
     h1 {
-        @include display-title;
-        color: $primary-2;
+      @include display-title;
+      color: $primary-2;
     }
+
     h2 {
-        @include subtitle;
-        color: white;
+      @include subtitle;
+      color: white;
     }
+
     p {
-        @include paragraph-text;
-        color: white;
-        max-width: 30rem;
-        text-align: center;
+      @include paragraph-text;
+      color: white;
+      max-width: 30rem;
+      text-align: left;
+    }
+  }
 
-        @media screen and (min-width: $mobile-screen) {
-            text-align: left;
-        }
+  .image {
+    @include border-radius;
+    margin: 1.5rem 0;
+
+    @media screen and (min-width: $tablet-screen) {
+      position: absolute;
+      right: 20%;
+      bottom: 10;
+    }
+  }
+
+  @media screen and (min-width: $tablet-screen) {
+    align-items: start;
+
+    .text {
+      margin-left: 20%;
     }
 
-    img {
-        @include border-radius;
+    .button {
+      margin-top: 1rem;
+      margin-left: 20%;
     }
+  }
 }

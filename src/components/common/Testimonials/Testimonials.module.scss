@@ -1,5 +1,7 @@
 .testimonials {
-  padding: 1.5rem;
+  padding: 1.5rem 15%;
+  max-width: $max-width;
+  margin: 0 auto;
 
   h2 {
     @include subtitle;
@@ -9,7 +11,7 @@
   .testimonials__list {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 6rem;
 
     @media screen and (min-width: $mobile-screen) {
       flex-direction: row;
@@ -17,4 +19,3 @@
     }
   }
 }
-

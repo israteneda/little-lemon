@@ -5,14 +5,16 @@ import styles from './Hero.module.scss';
 function Hero() {
   return (
     <div className={styles.hero}>
-      <h1>Little Lemon</h1>
-      <h2>Chicago</h2>
-      <p>
-        We are a family owned Mediterranean restaurant, focused on traditional recipes served with a
-        modern twist.
-      </p>
-      <img src='./images/waiter.png' height={300} width={250} />
-      <Button>Reserve a Table</Button>
+      <div className={styles.text}>
+        <h1>Little Lemon</h1>
+        <h2>Chicago</h2>
+        <p>
+          We are a family owned Mediterranean restaurant, focused on traditional recipes served with a
+          modern twist.
+        </p>
+      </div>
+      <img className={styles.image} src='./images/waiter.png' height={300} width={250} />
+      <Button extraClasses={styles.button}>Reserve a Table</Button>
     </div>
   );
 }
