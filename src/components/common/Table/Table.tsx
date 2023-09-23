@@ -19,6 +19,7 @@ function Table({ label, top, right, bottom, left, state, dispatch }: TableProps)
   return (
     <>
       <img
+        title={state}
         style={{ top: `${top}%`, right: `${right}%`, bottom: `${bottom}%`, left: `${left}%` }}
         className={styles.tableImg}
         src={`/images/table-${state}.png`}

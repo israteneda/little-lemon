@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "test": "vitest",
-    "preview": "vite preview",
+    "preview": "vite preview --port 8080",
     "stylelint": "npx stylelint **/*.scss"
   },
   "dependencies": {
