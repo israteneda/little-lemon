@@ -5,7 +5,19 @@ import Table from '@components/common/Table/Table';
 import FormTable from '@components/booking/FormTable/FormTable';
 import FormUser from '@components/booking/FormUser/FormUser';
 
-function Create() {
+function Create({
+  state,
+  dispatch,
+}: {
+  state: { tables: { label: string; left: number; top: number; state: string; availableTimes: string[] }[] };
+  dispatch: React.Dispatch<{ label: string; type: string }>;
+}) {
+  const { tables } = state;
+  // filter indoor and outdoor tables
+  // based on the first letter of the label
+  const indoorTables = tables.filter((table) => table.label[0] === 'I');
+  const outdoorTables = tables.filter((table) => table.label[0] === 'O');
+
   // Booking Data
   const [occasion, setOccasion] = useState('Birthday');
   const [date, setDate] = useState(new Date().toISOString().slice(0, 10));
@@ -31,19 +43,29 @@ function Create() {
           <h2 className={styles.indoorsLabel}>Indoors</h2>
           <h2 className={styles.outdoorsLabel}>Outdoors</h2>
           <div className={styles.indoors}>
-            <Table isReserved left={10} top={20} />
-            <Table left={40} top={20} />
-            <Table left={70} top={20} />
-            <Table left={25} top={50} />
-            <Table left={55} top={50} />
+            {indoorTables.map((table) => (
+              <Table
+                key={table.label}
+                label={table.label}
+                state={table.state}
+                left={table.left}
+                top={table.top}
+                dispatch={dispatch}
+              />
+            ))}
             <span className={styles.door} />
           </div>
           <div className={styles.outdoors}>
-            <Table left={15} top={15} />
-            <Table left={55} top={15} />
-            <Table left={35} top={40} />
-            <Table left={15} top={65} />
-            <Table left={55} top={65} />
+            {outdoorTables.map((table) => (
+              <Table
+                key={table.label}
+                label={table.label}
+                state={table.state}
+                left={table.left}
+                top={table.top}
+                dispatch={dispatch}
+              />
+            ))}
           </div>
         </section>
       </main>

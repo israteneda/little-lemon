@@ -1,4 +1,3 @@
-import React from 'react';
 import styles from './FormTable.module.scss';
 
 function FormTable({

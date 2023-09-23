@@ -3,16 +3,17 @@ import styles from './Table.module.scss';
 import useMediaQuery from '@hooks/useMediaQuery';
 
 export interface TableProps {
-  isReserved?: boolean;
+  label: string;
   top: number;
   right?: number;
   bottom?: number;
   left: number;
+  state?: string;
+  dispatch: React.Dispatch<{ label: string; type: string }>;
 }
 
-function Table({ isReserved, top, right, bottom, left }: TableProps) {
+function Table({ label, top, right, bottom, left, state, dispatch }: TableProps) {
   const isMobile = useMediaQuery('(max-width: 768px)');
-  const [state, setState] = React.useState<'available' | 'booked' | 'reserved'>(isReserved ? 'reserved' : 'available');
   const topSpace = isMobile ? 20 : 10;
 
   return (
@@ -23,10 +24,17 @@ function Table({ isReserved, top, right, bottom, left }: TableProps) {
         src={`/images/table-${state}.png`}
         width={10}
         alt={`${state} table`}
-        onClick={() => state !== 'reserved' && setState(state === 'available' ? 'booked' : 'available')}
+        onClick={() =>
+          state !== 'reserved' && state === 'available'
+            ? dispatch({ label: label, type: 'BOOK' })
+            : dispatch({ label: label, type: 'CANCEL_BOOK' })
+        }
       />
-      <span style={{ top: `${top + topSpace}%`, right: `${right}%`, bottom: `${bottom}%`, left: `${left + 5}%` }} className={styles.label}>
-        h1
+      <span
+        style={{ top: `${top + topSpace}%`, right: `${right}%`, bottom: `${bottom}%`, left: `${left + 5}%` }}
+        className={styles.label}
+      >
+        {label}
       </span>
     </>
   );
