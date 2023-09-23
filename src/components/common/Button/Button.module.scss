@@ -9,4 +9,9 @@
   gap: 10px;
   background: $primary-2;
   border: none;
+
+  &:hover {
+    background: $secondary-1;
+    cursor: pointer;
+  }
 }

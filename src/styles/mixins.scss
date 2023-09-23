@@ -21,13 +21,13 @@
   border-radius: 5px;
   padding: 0.8rem 1.6rem;
   font-size: 1.6rem;
-  color: #9d9d9d;
+  color: gray;
   margin: 0.8rem;
   width: 100%;
   box-sizing: border-box;
   &:focus {
     outline: none;
-    border: 1px solid #9d9d9d;
+    border: 1px solid gray;
   }
 }
 
@@ -48,7 +48,7 @@
 
   h2 {
     @include lead-text;
-    color: #9d9d9d;
+    color: gray;
     position: absolute;
     top: -2.5rem;
     left: 2rem;
