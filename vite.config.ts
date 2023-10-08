@@ -7,7 +7,6 @@ export default defineConfig({
   worker: {
     plugins: [react()],
   },
-  base: '/little-lemon/',
   test: {
     globals: true,
     environment: 'jsdom',
