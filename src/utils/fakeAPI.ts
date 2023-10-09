@@ -1,4 +1,4 @@
-const fetchAPI = (date: Date) => {
+const fetchAPI = (date: Date, table: string) => {
   const result: string[] = ['17:00'];
 
   for (let i = 17; i < 23; i++) {

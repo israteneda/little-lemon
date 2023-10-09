@@ -1,6 +1,4 @@
-import { useEffect, useState } from 'react';
 import styles from './FormTable.module.scss';
-import { fetchAPI } from '@utils/fakeAPI';
 
 function FormTable({
   occasion,
@@ -11,6 +9,7 @@ function FormTable({
   setTime,
   guests,
   setGuests,
+  table,
 }: {
   occasion: string;
   setOccasion: (value: string) => void;
@@ -20,17 +19,8 @@ function FormTable({
   setTime: (value: string) => void;
   guests: number;
   setGuests: (value: number) => void;
+  table: { label: string; availableTimes: string[] };
 }) {
-  const [availableTimes, setAvailableTimes] = useState<string[]>([]);
-
-  useEffect(() => {
-    const fetchAvailableTimes = async () => {
-      const data = await fetchAPI(new Date());
-      setAvailableTimes(data as string[]);
-    };
-    fetchAvailableTimes();
-  }, []);
-
   return (
     <section className={styles.form}>
       <h2>Booking Information</h2>
@@ -47,7 +37,7 @@ function FormTable({
         </select>
         <input id='date' type='date' value={date} onChange={(e) => setDate(e.target.value)} required />
         <select id='res-time ' value={time} onChange={(e) => setTime(e.target.value)} required>
-          {availableTimes.map((time) => (
+          {table.availableTimes.map((time) => (
             <option key={time}>{time}</option>
           ))}
         </select>

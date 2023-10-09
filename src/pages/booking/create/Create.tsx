@@ -9,10 +9,13 @@ function Create({
   state,
   dispatch,
 }: {
-  state: { tables: { label: string; left: number; top: number; state: string; availableTimes: string[] }[] };
+  state: {
+    selectedTable: string;
+    tables: { label: string; left: number; top: number; state: string; availableTimes: string[] }[];
+  };
   dispatch: React.Dispatch<{ label: string; type: string }>;
 }) {
-  const { tables } = state;
+  const { selectedTable, tables } = state;
   // filter indoor and outdoor tables
   // based on the first letter of the label
   const indoorTables = tables.filter((table) => table.label[0] === 'I');
@@ -51,6 +54,7 @@ function Create({
                 left={table.left}
                 top={table.top}
                 dispatch={dispatch}
+                selectedTable={selectedTable}
               />
             ))}
             <span className={styles.door} />
@@ -64,29 +68,33 @@ function Create({
                 left={table.left}
                 top={table.top}
                 dispatch={dispatch}
+                selectedTable={selectedTable}
               />
             ))}
           </div>
         </section>
       </main>
-      <form onSubmit={handleSubmit}>
-        <div className={styles.forms}>
-          <FormTable
-            occasion={occasion}
-            setOccasion={setOccasion}
-            date={date}
-            setDate={setDate}
-            time={time}
-            setTime={setTime}
-            guests={guests}
-            setGuests={setGuests}
-          />
-          <FormUser setName={setName} setEmail={setEmail} setPhone={setPhone} setComments={setComments} />
-        </div>
-        <div className={styles['button-container']}>
-          <Button type='submit'>Make Your reservation</Button>
-        </div>
-      </form>
+      {selectedTable && (
+        <form onSubmit={handleSubmit}>
+          <div className={styles.forms}>
+            <FormTable
+              occasion={occasion}
+              setOccasion={setOccasion}
+              date={date}
+              setDate={setDate}
+              time={time}
+              setTime={setTime}
+              guests={guests}
+              setGuests={setGuests}
+              table={tables.filter((table) => table.label === selectedTable)[0]}
+            />
+            <FormUser setName={setName} setEmail={setEmail} setPhone={setPhone} setComments={setComments} />
+          </div>
+          <div className={styles['button-container']}>
+            <Button type='submit'>Make Your reservation</Button>
+          </div>
+        </form>
+      )}
     </div>
   );
 }

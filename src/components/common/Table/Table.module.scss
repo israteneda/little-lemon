@@ -1,14 +1,29 @@
-.label {
-  position: absolute;
-  background-color: $primary-1;
-  padding: 2px 4px;
-  color: white;
-  border-radius: 4px;
-}
+.table {
+  .label {
+    position: absolute;
+    background-color: $primary-1;
+    padding: 2px 4px;
+    color: white;
+    border-radius: 4px;
+  }
 
-.tableImg {
-  position: absolute;
-  object-fit: cover;
-  height: 50px;
-  width: 50px;
+  .tableImg {
+    position: absolute;
+    object-fit: cover;
+    height: 50px;
+    width: 50px;
+  }
+
+  .tooltip {
+    font-size: 14px;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    color: $secondary-1;
+    background-color: $secondary-3;
+    padding: 4px 8px;
+    border-radius: 4px;
+    border: 1px solid $secondary-1;
+    z-index: 1;
+  }
 }
