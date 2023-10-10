@@ -1,25 +1,28 @@
 import React, { useState } from 'react';
 import { Button } from '@components/common';
 import styles from './Create.module.scss';
-import Table from '@components/common/Table/Table';
 import FormTable from '@components/booking/FormTable/FormTable';
 import FormUser from '@components/booking/FormUser/FormUser';
+import { useNavigate } from 'react-router-dom';
+import Tables from '@components/common/Tables/Tables';
 
-function Create({
-  state,
-  dispatch,
-}: {
+type Props = {
   state: {
     selectedTable: string;
-    tables: { label: string; left: number; top: number; state: string; availableTimes: string[] }[];
+    tables: {
+      label: string;
+      left: number;
+      top: number;
+      state: string;
+      availableTimes: string[];
+    }[];
   };
   dispatch: React.Dispatch<{ label: string; type: string }>;
-}) {
+};
+
+function Create({ state, dispatch }: Props) {
+  const navigate = useNavigate();
   const { selectedTable, tables } = state;
-  // filter indoor and outdoor tables
-  // based on the first letter of the label
-  const indoorTables = tables.filter((table) => table.label[0] === 'I');
-  const outdoorTables = tables.filter((table) => table.label[0] === 'O');
 
   // Booking Data
   const [occasion, setOccasion] = useState('Birthday');
@@ -35,45 +38,25 @@ function Create({
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log('submit');
+    navigate('/reservation/confirm', {
+      state: {
+        table: selectedTable,
+        occasion,
+        date,
+        time,
+        guests,
+        name,
+        email,
+        phone,
+        comments,
+      },
+    });
   };
 
   return (
     <div>
       <h1 className={styles.title}>Book your table</h1>
-      <main className={styles.main}>
-        <section className={styles.tables}>
-          <h2 className={styles.indoorsLabel}>Indoors</h2>
-          <h2 className={styles.outdoorsLabel}>Outdoors</h2>
-          <div className={styles.indoors}>
-            {indoorTables.map((table) => (
-              <Table
-                key={table.label}
-                label={table.label}
-                state={table.state}
-                left={table.left}
-                top={table.top}
-                dispatch={dispatch}
-                selectedTable={selectedTable}
-              />
-            ))}
-            <span className={styles.door} />
-          </div>
-          <div className={styles.outdoors}>
-            {outdoorTables.map((table) => (
-              <Table
-                key={table.label}
-                label={table.label}
-                state={table.state}
-                left={table.left}
-                top={table.top}
-                dispatch={dispatch}
-                selectedTable={selectedTable}
-              />
-            ))}
-          </div>
-        </section>
-      </main>
+      <Tables tables={tables} dispatch={dispatch} selectedTable={selectedTable} />
       {selectedTable && (
         <form onSubmit={handleSubmit}>
           <div className={styles.forms}>

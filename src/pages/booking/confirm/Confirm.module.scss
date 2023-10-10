@@ -1,0 +1,59 @@
+.container {
+  padding: 3.2rem;
+  max-width: $max-width;
+  margin: 0 auto;
+}
+
+.title {
+  @include display-title;
+  text-align: center;
+  margin: 0;
+}
+
+.confirmation {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 4rem auto;
+  padding: 2rem;
+  border: 1px solid black;
+  border-radius: 8px;
+  max-width: 50rem;
+  @include shadow;
+
+  .sectionTitle {
+    @include subtitle;
+    text-align: center;
+  }
+
+  .list {
+    list-style: none;
+  }
+}
+
+.conditions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 5rem auto;
+  text-align: left;
+  max-width: 85rem;
+}
+
+.sectionTitle {
+  @include subtitle;
+  text-align: left;
+  margin: 0;
+}
+
+.list {
+  @include paragraph-text;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  max-width: 850px;
+  margin: 0 auto;
+}

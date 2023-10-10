@@ -47,7 +47,7 @@ function Table({ label, top, right, bottom, left, state, dispatch, selectedTable
       {showTableSelected && (
         <span className={styles.tooltip}>
           You have already selected a table. <br />
-          Please cancel your reservation to select another table.
+          Please deselect the table to select another one.
         </span>
       )}
       <span
