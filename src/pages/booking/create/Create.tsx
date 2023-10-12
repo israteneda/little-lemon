@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button } from '@components/common';
 import styles from './Create.module.scss';
 import FormTable from '@components/booking/FormTable/FormTable';
 import FormUser from '@components/booking/FormUser/FormUser';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Tables from '@components/common/Tables/Tables';
 
 type Props = {
@@ -21,8 +21,10 @@ type Props = {
 };
 
 function Create({ state, dispatch }: Props) {
+  const location = useLocation();
   const navigate = useNavigate();
   const { selectedTable, tables } = state;
+  const { state: navigationState } = location;
 
   // Booking Data
   const [occasion, setOccasion] = useState('Birthday');
@@ -36,8 +38,14 @@ function Create({ state, dispatch }: Props) {
   const [phone, setPhone] = useState('');
   const [comments, setComments] = useState('');
 
+  // function to check if an object is empty
+  const isEmpty = (obj: any) => {
+    return Object.keys(obj).length === 0;
+  };
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    localStorage.setItem('table', selectedTable);
     navigate('/reservation/confirm', {
       state: {
         table: selectedTable,
@@ -53,11 +61,26 @@ function Create({ state, dispatch }: Props) {
     });
   };
 
+  useEffect(() => {
+    if (!isEmpty(navigationState)) {
+      setOccasion(navigationState.occasion);
+      setDate(navigationState.date);
+      setTime(navigationState.time);
+      setGuests(navigationState.guests);
+      setName(navigationState.name);
+      setEmail(navigationState.email);
+      setPhone(navigationState.phone);
+      setComments(navigationState.comments);
+    }
+  }, [navigationState]);
+
+  console.log('bane', name);
+
   return (
     <div>
       <h1 className={styles.title}>Book your table</h1>
       <Tables tables={tables} dispatch={dispatch} selectedTable={selectedTable} />
-      {selectedTable && (
+      {(selectedTable || !isEmpty(navigationState)) && (
         <form onSubmit={handleSubmit}>
           <div className={styles.forms}>
             <FormTable
@@ -71,7 +94,16 @@ function Create({ state, dispatch }: Props) {
               setGuests={setGuests}
               table={tables.filter((table) => table.label === selectedTable)[0]}
             />
-            <FormUser setName={setName} setEmail={setEmail} setPhone={setPhone} setComments={setComments} />
+            <FormUser
+              name={name}
+              setName={setName}
+              email={email}
+              setEmail={setEmail}
+              phone={phone}
+              setPhone={setPhone}
+              comments={comments}
+              setComments={setComments}
+            />
           </div>
           <div className={styles['button-container']}>
             <Button type='submit'>Make Your reservation</Button>

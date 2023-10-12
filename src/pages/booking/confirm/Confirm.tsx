@@ -23,12 +23,21 @@ function Confirm({ state, dispatch }: Props) {
   const navigation = useNavigate();
   const { tables } = state;
   const { state: navigationState } = location;
-  const { table, occasion, date, time, guests, name, email, phone, comments } = navigationState;
+  const { table, occasion, date, time, guests, name, email, phone, comments } = navigationState || {};
+
+  const selectedTable = table || localStorage.getItem('table');
+
+  React.useEffect(() => {
+    if (!table) {
+      localStorage.removeItem('table');
+      navigation('/reservation/create');
+    }
+  }, []);
 
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>Confirm your reservation</h1>
-      <Tables tables={tables} dispatch={dispatch} selectedTable={table} />
+      <Tables tables={tables} dispatch={dispatch} selectedTable={selectedTable} disabled />
       <section className={styles.confirmation}>
         <h2 className={styles.sectionTitle}>Booking Confirmation</h2>
         <ul className={styles.list}>
@@ -54,10 +63,14 @@ function Confirm({ state, dispatch }: Props) {
             <b>Guests:</b> {guests}
           </li>
           <li>
-            <b>Table:</b> {table}
+            <b>Table:</b> {selectedTable}
           </li>
           <li>
-            <b>Comments:</b> {comments}{' '}
+            {comments && (
+              <>
+                <b>Comments:</b> {comments}
+              </>
+            )}
           </li>
         </ul>
       </section>
@@ -70,7 +83,25 @@ function Confirm({ state, dispatch }: Props) {
         </ul>
       </section>
       <div className={styles.buttons}>
-        <Button onClick={() => navigation(-1)}>Edit</Button>
+        <Button
+          onClick={() =>
+            navigation('/reservation/create', {
+              state: {
+                table: selectedTable,
+                occasion,
+                date,
+                time,
+                guests,
+                name,
+                email,
+                phone,
+                comments,
+              },
+            })
+          }
+        >
+          Edit
+        </Button>
         <Button>Confirm</Button>
       </div>
     </div>

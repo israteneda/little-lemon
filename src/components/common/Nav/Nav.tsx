@@ -14,7 +14,7 @@ function Nav() {
   const desktopNav = (
     <nav className={styles.desktop}>
       <Link to='/'>
-        <img src='./icons/nav-logo.png' alt='Little Lemon Logo' height={50} />
+        <img src='/icons/nav-logo.png' alt='Little Lemon Logo' height={50} />
       </Link>
       <ul>
         <li>

@@ -5,12 +5,7 @@ import { Link } from 'react-router-dom';
 function Footer() {
   return (
     <footer className={styles.footer}>
-      <img
-        className={styles.logo}
-        src='./icons/footer-logo.png'
-        height={150}
-        alt='Little Lemon Footer Logo'
-      />
+      <img className={styles.logo} src='/icons/footer-logo.png' height={150} alt='Little Lemon Footer Logo' />
       <div className={styles.submenu}>
         <h2>Doormat Navigation</h2>
         <ul>

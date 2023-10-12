@@ -37,7 +37,7 @@ function FormTable({
         </select>
         <input id='date' type='date' value={date} onChange={(e) => setDate(e.target.value)} required />
         <select id='res-time ' value={time} onChange={(e) => setTime(e.target.value)} required>
-          {table.availableTimes.map((time) => (
+          {table?.availableTimes.map((time) => (
             <option key={time}>{time}</option>
           ))}
         </select>

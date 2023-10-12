@@ -1,7 +1,7 @@
 import Table from '../Table/Table';
 import styles from './Tables.module.scss';
 
-const Tables = ({ tables, dispatch, selectedTable }: any) => {
+const Tables = ({ tables, dispatch, selectedTable, disabled }: any) => {
   const indoorTables = tables.filter((table: any) => table.label[0] === 'I');
   const outdoorTables = tables.filter((table: any) => table.label[0] === 'O');
 
@@ -20,6 +20,7 @@ const Tables = ({ tables, dispatch, selectedTable }: any) => {
               top={table.top}
               dispatch={dispatch}
               selectedTable={selectedTable}
+              disabled={disabled}
             />
           ))}
           <span className={styles.door} />
@@ -34,6 +35,7 @@ const Tables = ({ tables, dispatch, selectedTable }: any) => {
               top={table.top}
               dispatch={dispatch}
               selectedTable={selectedTable}
+              disabled={disabled}
             />
           ))}
         </div>
