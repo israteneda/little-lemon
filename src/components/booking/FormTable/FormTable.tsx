@@ -19,7 +19,13 @@ function FormTable({
   setTime: (value: string) => void;
   guests: number;
   setGuests: (value: number) => void;
-  table: { label: string; availableTimes: string[] };
+  table: {
+    label: string; 
+    left: number; 
+    top: number; 
+    state: string; 
+    availableTimes: string[] 
+  } | undefined;
 }) {
   return (
     <section className={styles.form}>
@@ -37,9 +43,9 @@ function FormTable({
         </select>
         <input id='date' type='date' value={date} onChange={(e) => setDate(e.target.value)} required />
         <select id='res-time ' value={time} onChange={(e) => setTime(e.target.value)} required>
-          {table?.availableTimes.map((time) => (
-            <option key={time}>{time}</option>
-          ))}
+          {table?.availableTimes.map((time) => {
+            return <option key={time}>{time}</option>
+          })}
         </select>
         <input
           type='number'

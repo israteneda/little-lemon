@@ -1,8 +1,11 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Button } from '@components/common';
 import styles from './Hero.module.scss';
 
 function Hero() {
+  const navigation = useNavigate();
+
   return (
     <div className={styles.hero}>
       <div className={styles.text}>
@@ -14,7 +17,7 @@ function Hero() {
         </p>
       </div>
       <img className={styles.image} src='./images/waiter.png' height={300} width={250} />
-      <Button extraClasses={styles.button}>Reserve a Table</Button>
+      <Button extraClasses={styles.button} onClick={() => navigation('/reservation/create')}>Reserve a Table</Button>
     </div>
   );
 }

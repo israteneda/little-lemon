@@ -38,11 +38,6 @@ function Create({ state, dispatch }: Props) {
   const [phone, setPhone] = useState('');
   const [comments, setComments] = useState('');
 
-  // function to check if an object is empty
-  const isEmpty = (obj: any) => {
-    return Object.keys(obj).length === 0;
-  };
-
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     localStorage.setItem('table', selectedTable);
@@ -62,7 +57,15 @@ function Create({ state, dispatch }: Props) {
   };
 
   useEffect(() => {
-    if (!isEmpty(navigationState)) {
+    const savedTable = navigationState?.table;
+    localStorage.removeItem('table');
+    if (savedTable) {
+      dispatch({ label: selectedTable, type: 'BOOK' });
+    }
+  }, []);
+
+  useEffect(() => {
+    if (navigationState) {
       setOccasion(navigationState.occasion);
       setDate(navigationState.date);
       setTime(navigationState.time);
@@ -74,13 +77,11 @@ function Create({ state, dispatch }: Props) {
     }
   }, [navigationState]);
 
-  console.log('bane', name);
-
   return (
     <div>
       <h1 className={styles.title}>Book your table</h1>
-      <Tables tables={tables} dispatch={dispatch} selectedTable={selectedTable} />
-      {(selectedTable || !isEmpty(navigationState)) && (
+      <Tables state={state} dispatch={dispatch} />
+      {(selectedTable || navigationState) && (
         <form onSubmit={handleSubmit}>
           <div className={styles.forms}>
             <FormTable
@@ -92,7 +93,7 @@ function Create({ state, dispatch }: Props) {
               setTime={setTime}
               guests={guests}
               setGuests={setGuests}
-              table={tables.filter((table) => table.label === selectedTable)[0]}
+              table={tables.find((table) => table.label === selectedTable)}
             />
             <FormUser
               name={name}

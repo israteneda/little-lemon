@@ -21,7 +21,6 @@ type Props = {
 function Confirm({ state, dispatch }: Props) {
   const location = useLocation();
   const navigation = useNavigate();
-  const { tables } = state;
   const { state: navigationState } = location;
   const { table, occasion, date, time, guests, name, email, phone, comments } = navigationState || {};
 
@@ -37,7 +36,7 @@ function Confirm({ state, dispatch }: Props) {
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>Confirm your reservation</h1>
-      <Tables tables={tables} dispatch={dispatch} selectedTable={selectedTable} disabled />
+      <Tables state={state} dispatch={dispatch} disabled />
       <section className={styles.confirmation}>
         <h2 className={styles.sectionTitle}>Booking Confirmation</h2>
         <ul className={styles.list}>

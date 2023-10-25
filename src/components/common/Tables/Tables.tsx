@@ -1,10 +1,10 @@
 import Table from '../Table/Table';
 import styles from './Tables.module.scss';
 
-const Tables = ({ tables, dispatch, selectedTable, disabled }: any) => {
-  const indoorTables = tables.filter((table: any) => table.label[0] === 'I');
-  const outdoorTables = tables.filter((table: any) => table.label[0] === 'O');
-
+const Tables = ({ state, dispatch, disabled }: any) => {
+  const indoorTables = state.tables.filter((table: any) => table.label[0] === 'I');
+  const outdoorTables = state.tables.filter((table: any) => table.label[0] === 'O');
+  
   return (
     <main className={styles.main}>
       <section className={styles.tables}>
@@ -19,7 +19,7 @@ const Tables = ({ tables, dispatch, selectedTable, disabled }: any) => {
               left={table.left}
               top={table.top}
               dispatch={dispatch}
-              selectedTable={selectedTable}
+              selectedTable={state.selectedTable}
               disabled={disabled}
             />
           ))}
@@ -34,7 +34,7 @@ const Tables = ({ tables, dispatch, selectedTable, disabled }: any) => {
               left={table.left}
               top={table.top}
               dispatch={dispatch}
-              selectedTable={selectedTable}
+              selectedTable={state.selectedTable}
               disabled={disabled}
             />
           ))}

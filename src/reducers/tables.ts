@@ -36,7 +36,7 @@ export function tablesReducer(state: any = initialState, action: { label: string
   switch (action.type) {
     case 'BOOK':
       return {
-        selectedTable: !bookedTableExists ? action.label : null,
+        selectedTable: action.label || null,
         tables: state.tables.map((table: { label: string; left: number; top: number; state: string }) =>
           table.label === action.label && !bookedTableExists ? { ...table, state: 'booked' } : table,
         ),
