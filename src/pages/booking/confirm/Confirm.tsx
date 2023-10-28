@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Button } from '@components/common';
+import { Button, Modal } from '@components/common';
 import { useLocation, useNavigate } from 'react-router-dom';
 import styles from './Confirm.module.scss';
 import Tables from '@components/common/Tables/Tables';
@@ -18,11 +18,35 @@ type Props = {
   dispatch: React.Dispatch<{ label: string; type: string }>;
 };
 
+const ConfrimationModal = ({ selectedTable, email, dispatch }: { selectedTable: string; email: string; dispatch: React.Dispatch<{ label: string; type: string }> }) => {
+  const navigation = useNavigate();
+  return (
+    <Modal>
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '3.2rem'}}>
+        <img src='/images/checkmark.png' alt='Check Mark' width={80} height={80} />
+        <p>{`You booked the order successfully. We sent all the information to ${email}`}</p>
+        <Button 
+          extraClasses={styles.confirmButton} 
+          onClick={
+            () => {
+              dispatch({ label: selectedTable, type: 'CANCEL_BOOK' });
+              navigation('/', { replace: true })
+            }
+          }
+        >
+          Close
+        </Button>
+      </div>
+    </Modal>
+  )
+}
+
 function Confirm({ state, dispatch }: Props) {
   const location = useLocation();
   const navigation = useNavigate();
   const { state: navigationState } = location;
   const { table, occasion, date, time, guests, name, email, phone, comments } = navigationState || {};
+  const [ modalOpen, setModalOpen ] = React.useState(false);
 
   const selectedTable = table || localStorage.getItem('table');
 
@@ -101,7 +125,8 @@ function Confirm({ state, dispatch }: Props) {
         >
           Edit
         </Button>
-        <Button>Confirm</Button>
+        <Button onClick={() => setModalOpen(true)}>Confirm</Button>
+        {modalOpen && <ConfrimationModal selectedTable={selectedTable} email={email} dispatch={dispatch}/>}
       </div>
     </div>
   );
