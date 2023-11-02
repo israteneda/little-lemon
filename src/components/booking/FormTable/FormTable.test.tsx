@@ -31,7 +31,8 @@ describe('Renders the BookingForm heading', () => {
         time={time}
         setTime={setTime}
         guests={guests}
-        setGuests={setGuests}
+        setGuests={setGuests} 
+        table={undefined}      
       />,
     );
     const headingElement = screen.getByText('Booking Information');
