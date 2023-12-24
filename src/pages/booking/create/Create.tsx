@@ -31,6 +31,9 @@ function Create({ state, dispatch }: Props) {
   const [date, setDate] = useState(new Date().toISOString().slice(0, 10));
   const [time, setTime] = useState('17:00');
   const [guests, setGuests] = useState(1);
+  // Booking Data Errors
+  const [dateError, setDateError] = useState('');
+  const [guestsError, setGuestsError] = useState('');
 
   // User Data
   const [name, setName] = useState('');
@@ -88,11 +91,15 @@ function Create({ state, dispatch }: Props) {
               occasion={occasion}
               setOccasion={setOccasion}
               date={date}
+              dateError={dateError}
               setDate={setDate}
+              setDateError={setDateError}
               time={time}
               setTime={setTime}
               guests={guests}
+              guestsError={guestsError}
               setGuests={setGuests}
+              setGuestsError={setGuestsError}
               table={tables.find((table) => table.label === selectedTable)}
             />
             <FormUser
@@ -107,7 +114,12 @@ function Create({ state, dispatch }: Props) {
             />
           </div>
           <div className={styles['button-container']}>
-            <Button type='submit'>Make Your reservation</Button>
+            <Button 
+            type='submit'
+            disabled={!!dateError || !!guestsError}
+            >
+              Make Your reservation
+            </Button>
           </div>
         </form>
       )}
