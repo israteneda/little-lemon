@@ -2,3 +2,11 @@
   @include box-container;
   height: fit-content;
 }
+
+.error {
+  color: #ff4d4d;
+  font-size: 1.4rem;
+  position: absolute;
+  bottom: -18px;
+  width: max-content;
+}

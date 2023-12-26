@@ -1,25 +1,47 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './FormUser.module.scss';
 
 function FormUser({
   name,
+  nameError,
   setName,
+  setNameError,
   email,
   setEmail,
   phone,
+  phoneError,
   setPhone,
+  setPhoneError,
   comments,
   setComments,
 }: {
   name: string;
+  nameError: string;
   setName: (value: string) => void;
+  setNameError: (value: string) => void;
   email: string;
   setEmail: (value: string) => void;
   phone: string;
+  phoneError: string;
   setPhone: (value: string) => void;
+  setPhoneError: (value: string) => void;
   comments: string;
   setComments: (value: string) => void;
 }) {
+  useEffect(() => {
+    if (name && name.length < 3) {
+      setNameError('Name must be at least 3 characters long.')
+    } else {
+      setNameError('')
+    }
+    if (phone && phone.length > 10 || phone.length < 10) {
+      setPhoneError('Phone number must be at least 10 characters long.')
+    } else {
+      setPhoneError('')
+    }
+  }, [name, phone]);
+    
+
   return (
     <section className={styles.form}>
       <h2>Customer Information</h2>
@@ -30,14 +52,19 @@ function FormUser({
         <label htmlFor='comments'>Additional Comments</label>
       </span>
       <span className={styles.inputs}>
-        <input
-          id='name'
-          type='text'
-          placeholder='Enter your name'
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          required
-        />
+        <div style={{position: 'relative'}}>
+          <input
+            id='name'
+            type='text'
+            placeholder='Enter your name'
+            value={name}
+            onChange={(e) => {
+              setName(e.target.value)
+            }}
+            required
+          />
+          <span className={styles.error}>{nameError}</span>
+        </div>
         <input
           id='email'
           type='email'
@@ -46,14 +73,20 @@ function FormUser({
           onChange={(e) => setEmail(e.target.value)}
           required
         />
-        <input
-          id='phone'
-          type='tel'
-          placeholder='Enter your phone number'
-          value={phone}
-          onChange={(e) => setPhone(e.target.value)}
-          required
-        />
+        <div style={{position: 'relative'}}>
+          <input
+            id='phone'
+            type='tel'
+            placeholder='Enter your phone number'
+            value={phone}
+            onChange={(e) => {
+              setPhone(e.target.value)
+          
+            }}
+            required
+          />
+          <span className={styles.error}>{phoneError}</span>
+        </div>
         <textarea
           name='comments'
           id='comments'

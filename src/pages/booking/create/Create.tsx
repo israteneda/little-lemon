@@ -40,6 +40,9 @@ function Create({ state, dispatch }: Props) {
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [comments, setComments] = useState('');
+  // User Data Errors
+  const [nameError, setNameError] = useState('');
+  const [phoneError, setPhoneError] = useState('');
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -104,11 +107,15 @@ function Create({ state, dispatch }: Props) {
             />
             <FormUser
               name={name}
+              nameError={nameError}
               setName={setName}
+              setNameError={setNameError}
               email={email}
               setEmail={setEmail}
               phone={phone}
+              phoneError={phoneError}
               setPhone={setPhone}
+              setPhoneError={setPhoneError}
               comments={comments}
               setComments={setComments}
             />
@@ -116,7 +123,7 @@ function Create({ state, dispatch }: Props) {
           <div className={styles['button-container']}>
             <Button 
             type='submit'
-            disabled={!!dateError || !!guestsError}
+            disabled={ !selectedTable || !!dateError || !!guestsError || !!nameError || !!phoneError }
             >
               Make Your reservation
             </Button>
