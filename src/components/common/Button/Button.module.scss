@@ -18,9 +18,11 @@
 
 .disabled {
   background: gray;
+  color: white;
   cursor: not-allowed;
 
   &:hover {
     background: gray;
+    color: white;
   }
 }

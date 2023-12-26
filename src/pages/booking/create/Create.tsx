@@ -124,7 +124,18 @@ function Create({ state, dispatch }: Props) {
             <Button 
             ariaLabel='Make your reservation'
             type='submit'
-            disabled={ !selectedTable || !!dateError || !!guestsError || !!nameError || !!phoneError }
+            disabled={ 
+              !selectedTable || 
+              !date ||
+              !!dateError || 
+              !guests ||
+              !!guestsError || 
+              !name ||
+              !!nameError || 
+              !email ||
+              !phone ||
+              !!phoneError 
+            }
             >
               Make Your reservation
             </Button>

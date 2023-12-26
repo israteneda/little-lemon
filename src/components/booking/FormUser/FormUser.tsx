@@ -31,12 +31,12 @@ function FormUser({
 
   useEffect(() => {
     if (name && name.length < 3) {
-      setNameError('Name must be at least 3 characters long.')
+      setNameError('Please enter your full name, at least 3 characters long.')
     } else {
       setNameError('')
     }
     if (phone && (phone.length > 10 || phone.length < 10)) {
-      setPhoneError('Phone number must be at least 10 characters long.')
+      setPhoneError('Please enter a valid phone number, 10 characters long.')
     } else {
       setPhoneError('')
     }
