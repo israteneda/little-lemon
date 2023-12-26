@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Button } from '@components/common';
 import styles from './Create.module.scss';
-import FormTable from '@components/booking/FormTable/FormTable';
-import FormUser from '@components/booking/FormUser/FormUser';
+import BookingForm from '@components/booking/BookingForm/BookingForm';
+import UserForm from '@components/booking/UserForm/UserForm';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Tables from '@components/common/Tables/Tables';
 
@@ -90,7 +90,7 @@ function Create({ state, dispatch }: Props) {
       {(selectedTable || navigationState) && (
         <form onSubmit={handleSubmit}>
           <div className={styles.forms}>
-            <FormTable
+            <BookingForm
               occasion={occasion}
               setOccasion={setOccasion}
               date={date}
@@ -105,7 +105,7 @@ function Create({ state, dispatch }: Props) {
               setGuestsError={setGuestsError}
               table={tables.find((table) => table.label === selectedTable)}
             />
-            <FormUser
+            <UserForm
               name={name}
               nameError={nameError}
               setName={setName}

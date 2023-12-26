@@ -1,7 +1,7 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import FormUser from './FormUser';
+import UserForm from './UserForm';
 
-describe('FormUser', () => {
+describe('UserForm', () => {
     let name = '';
     let nameError = '';
     let email = '';
@@ -30,7 +30,7 @@ describe('FormUser', () => {
 
 
     test('renders the component', () => {
-        render(<FormUser
+        render(<UserForm
             name={name}
             nameError={nameError}
             setName={setName}
@@ -45,12 +45,12 @@ describe('FormUser', () => {
             setComments={setComments}
         />);
         
-        const formUserElement = screen.getByText('Customer Information');
-        expect(formUserElement);
+        const userFormElement = screen.getByText('Customer Information');
+        expect(userFormElement);
     });
 
     test('validates name input', () => {
-        const {rerender} = render(<FormUser
+        const {rerender} = render(<UserForm
             name={name}
             nameError={nameError}
             setName={setName}
@@ -66,7 +66,7 @@ describe('FormUser', () => {
         />);
         const nameInput = screen.getByPlaceholderText('Enter your name');
         fireEvent.change(nameInput, { target: { value: 'Jo' } });
-        rerender(<FormUser
+        rerender(<UserForm
             name={name}
             nameError={nameError}
             setName={setName}
@@ -84,7 +84,7 @@ describe('FormUser', () => {
     });
 
     test('name is valid', () => {
-        const {rerender} = render(<FormUser
+        const {rerender} = render(<UserForm
             name={name}
             nameError={nameError}
             setName={setName}
@@ -100,7 +100,7 @@ describe('FormUser', () => {
         />);
         const nameInput = screen.getByPlaceholderText('Enter your name');
         fireEvent.change(nameInput, { target: { value: 'John' } });
-        rerender(<FormUser
+        rerender(<UserForm
             name={name}
             nameError={nameError}
             setName={setName}
@@ -118,7 +118,7 @@ describe('FormUser', () => {
     });
 
     test('validates phone input', () => {
-        const {rerender} = render(<FormUser
+        const {rerender} = render(<UserForm
             name={name}
             nameError={nameError}
             setName={setName}
@@ -134,7 +134,7 @@ describe('FormUser', () => {
         />);
         const phoneInput = screen.getByPlaceholderText('Enter your phone number');
         fireEvent.change(phoneInput, { target: { value: '123456789' } });
-        rerender(<FormUser
+        rerender(<UserForm
             name={name}
             nameError={nameError}
             setName={setName}
@@ -152,7 +152,7 @@ describe('FormUser', () => {
     });
 
     test('phone is valid', () => {
-        const {rerender} = render(<FormUser
+        const {rerender} = render(<UserForm
             name={name}
             nameError={nameError}
             setName={setName}
@@ -168,7 +168,7 @@ describe('FormUser', () => {
         />);
         const phoneInput = screen.getByPlaceholderText('Enter your phone number');
         fireEvent.change(phoneInput, { target: { value: '1234567890' } });
-        rerender(<FormUser
+        rerender(<UserForm
             name={name}
             nameError={nameError}
             setName={setName}

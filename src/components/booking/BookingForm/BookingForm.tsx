@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
-import styles from './FormTable.module.scss';
+import styles from './BookingForm.module.scss';
 
-function FormTable({
+function BookingForm({
   occasion,
   setOccasion,
   date,
@@ -99,4 +99,4 @@ function FormTable({
   );
 }
 
-export default FormTable;
+export default BookingForm;

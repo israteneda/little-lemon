@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import styles from './FormUser.module.scss';
+import React, { useEffect } from 'react';
+import styles from './UserForm.module.scss';
 
-function FormUser({
+function UserForm({
   name,
   nameError,
   setName,
@@ -103,4 +103,4 @@ function FormUser({
   );
 }
 
-export default FormUser;
+export default UserForm;

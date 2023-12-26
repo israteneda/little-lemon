@@ -1,4 +1,4 @@
-import FormTable from './FormTable/FormTable';
-import FormUser from './FormUser/FormUser';
+import BookingForm from './BookingForm/BookingForm';
+import UserForm from './UserForm/UserForm';
 
-export default { FormTable, FormUser };
+export default { BookingForm, UserForm };

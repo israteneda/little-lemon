@@ -1,6 +1,6 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import { describe, it, expect } from 'vitest';
-import FormTable from './FormTable';
+import BookingForm from './BookingForm';
 
 describe('Renders the BookingForm heading', () => {
   let ocassion = 'Birthday';
@@ -31,7 +31,7 @@ describe('Renders the BookingForm heading', () => {
 
   it('should render the heading', () => {
     render(
-      <FormTable
+      <BookingForm
         occasion={ocassion}
         setOccasion={setOccasion}
         date={date}
@@ -53,7 +53,7 @@ describe('Renders the BookingForm heading', () => {
 
   it('should select a table to choose a time', () => {
     const {rerender} = render(
-      <FormTable
+      <BookingForm
         occasion={ocassion}
         setOccasion={setOccasion}
         date={date}
@@ -72,7 +72,7 @@ describe('Renders the BookingForm heading', () => {
     const dateInput = screen.getAllByLabelText('Choose time');
     fireEvent.click(dateInput[0]);
     rerender(
-      <FormTable
+      <BookingForm
         occasion={ocassion}
         setOccasion={setOccasion}
         date={date}
@@ -93,7 +93,7 @@ describe('Renders the BookingForm heading', () => {
 
   it('should be guests between 1 and 10', () => {
     const {rerender} = render(
-      <FormTable
+      <BookingForm
         occasion={ocassion}
         setOccasion={setOccasion}
         date={date}
@@ -112,7 +112,7 @@ describe('Renders the BookingForm heading', () => {
     const guestsInput = screen.getByLabelText('Number of guests');
     fireEvent.change(guestsInput, {target: {value: 0}});
     rerender(
-      <FormTable
+      <BookingForm
         occasion={ocassion}
         setOccasion={setOccasion}
         date={date}
@@ -133,7 +133,7 @@ describe('Renders the BookingForm heading', () => {
 
   test('guests is valid', () => {
     const {rerender} = render(
-      <FormTable
+      <BookingForm
         occasion={ocassion}
         setOccasion={setOccasion}
         date={date}
@@ -152,7 +152,7 @@ describe('Renders the BookingForm heading', () => {
     const guestsInput = screen.getByLabelText('Number of guests');
     fireEvent.change(guestsInput, {target: {value: 5}});
     rerender(
-      <FormTable
+      <BookingForm
         occasion={ocassion}
         setOccasion={setOccasion}
         date={date}
