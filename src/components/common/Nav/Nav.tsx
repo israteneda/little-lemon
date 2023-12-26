@@ -48,7 +48,7 @@ function Nav() {
     <div className={styles.nav}>
       {isMobile ? (
         <>
-          <button className={styles['menu-button']} onClick={() => setIsMobileOpen(!isMobileOpen)}>
+          <button aria-label="Open Mobile Navigation" className={styles['menu-button']} onClick={() => setIsMobileOpen(!isMobileOpen)}>
             <img src='/icons/menu-icon.svg' alt='Menu icon' style={{ padding: '10px' }} width={40} height={40} />
           </button>
           {<MobileNav />}

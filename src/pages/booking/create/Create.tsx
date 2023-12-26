@@ -122,6 +122,7 @@ function Create({ state, dispatch }: Props) {
           </div>
           <div className={styles['button-container']}>
             <Button 
+            ariaLabel='Make your reservation'
             type='submit'
             disabled={ !selectedTable || !!dateError || !!guestsError || !!nameError || !!phoneError }
             >

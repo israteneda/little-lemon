@@ -5,12 +5,14 @@ import cn from 'classnames';
 function Button({
   children,
   type = 'button',
+  ariaLabel,
   disabled,
   onClick,
   extraClasses,
 }: {
   children: React.ReactNode;
   type?: 'button' | 'submit' | 'reset' | undefined;
+  ariaLabel?: string;
   disabled?: boolean;
   onClick?: () => void;
   extraClasses?: string;
@@ -20,7 +22,7 @@ function Button({
   });
 
   return (
-    <button type={type} onClick={onClick} className={classNames} disabled={disabled}>
+    <button aria-label={ariaLabel} type={type} onClick={onClick} className={classNames} disabled={disabled}>
       {children}
     </button>
   );

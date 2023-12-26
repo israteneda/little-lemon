@@ -22,7 +22,7 @@ function Dishes({
           />
         ))}
       </div>
-      <Button>Online Menu</Button>
+      <Button ariaLabel="Online Menu">Online Menu</Button>
     </section>
   );
 }

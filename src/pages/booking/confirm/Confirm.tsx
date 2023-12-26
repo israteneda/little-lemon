@@ -26,6 +26,7 @@ const ConfrimationModal = ({ selectedTable, email, dispatch }: { selectedTable: 
         <img src='/images/checkmark.png' alt='Check Mark' width={80} height={80} />
         <p>{`You booked the order successfully. We sent all the information to ${email}`}</p>
         <Button 
+          ariaLabel="Close Modal"
           extraClasses={styles.confirmButton} 
           onClick={
             () => {
@@ -107,6 +108,7 @@ function Confirm({ state, dispatch }: Props) {
       </section>
       <div className={styles.buttons}>
         <Button
+          ariaLabel="Edit Reservation"
           onClick={() =>
             navigation('/reservation/create', {
               state: {
@@ -125,7 +127,9 @@ function Confirm({ state, dispatch }: Props) {
         >
           Edit
         </Button>
-        <Button onClick={() => setModalOpen(true)}>Confirm</Button>
+        <Button 
+        ariaLabel="Confirm Reservation"
+        onClick={() => setModalOpen(true)}>Confirm</Button>
         {modalOpen && <ConfrimationModal selectedTable={selectedTable} email={email} dispatch={dispatch}/>}
       </div>
     </div>

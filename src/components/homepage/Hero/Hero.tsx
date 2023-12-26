@@ -17,7 +17,7 @@ function Hero() {
         </p>
       </div>
       <img className={styles.image} src='./images/waiter.png' height={300} width={250} />
-      <Button extraClasses={styles.button} onClick={() => navigation('/reservation/create')}>Reserve a Table</Button>
+      <Button ariaLabel="Create Reservation" extraClasses={styles.button} onClick={() => navigation('/reservation/create')}>Reserve a Table</Button>
     </div>
   );
 }
