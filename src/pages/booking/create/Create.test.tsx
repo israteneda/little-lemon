@@ -15,7 +15,7 @@ vi.mock('react-router-dom', async () => {
                 guests: 4,
                 name: 'John Doe',
                 email: 'john@gmail.com',
-                phone: '555-1234',
+                phone: '0995691343',
                 comments: 'No special requests',
             }
         }),

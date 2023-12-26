@@ -65,7 +65,9 @@ function FormTable({
             setDateError('');
             setTime(e.target.value)}
           } 
-          onClick={() => (!table ? setDateError('Please select a table first!') : setDateError(''))}
+          onClick={() => {
+            !table ? setDateError('Please select a table first!') : setDateError('');
+          }}
           required
         >
           {table?.availableTimes.map((time) => {

@@ -28,13 +28,14 @@ function FormUser({
   comments: string;
   setComments: (value: string) => void;
 }) {
+
   useEffect(() => {
     if (name && name.length < 3) {
       setNameError('Name must be at least 3 characters long.')
     } else {
       setNameError('')
     }
-    if (phone && phone.length > 10 || phone.length < 10) {
+    if (phone && (phone.length > 10 || phone.length < 10)) {
       setPhoneError('Phone number must be at least 10 characters long.')
     } else {
       setPhoneError('')
@@ -59,7 +60,8 @@ function FormUser({
             placeholder='Enter your name'
             value={name}
             onChange={(e) => {
-              setName(e.target.value)
+              e.preventDefault();
+              setName(e.currentTarget.value);
             }}
             required
           />
@@ -80,8 +82,8 @@ function FormUser({
             placeholder='Enter your phone number'
             value={phone}
             onChange={(e) => {
-              setPhone(e.target.value)
-          
+              e.preventDefault();
+              setPhone(e.currentTarget.value);
             }}
             required
           />
